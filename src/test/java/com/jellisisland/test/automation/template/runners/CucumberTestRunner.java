@@ -9,8 +9,10 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "io.cucumber.core.plugin.SerenityReporterParallel,pretty,timeline:build/test-results")
-@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "com.jellisisland.test.automation.template.stepdefinitions")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, 
+    value = "io.cucumber.core.plugin.SerenityReporterParallel,pretty,timeline:build/test-results")
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, 
+    value = "com.jellisisland.test.automation.template.stepdefinitions")
 @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "")
 public class CucumberTestRunner {
 }

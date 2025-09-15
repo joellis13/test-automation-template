@@ -3,6 +3,7 @@ package com.jellisisland.test.automation.template.pages;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GoogleSearchResultsPage extends PageObject {
 
@@ -12,9 +13,10 @@ public class GoogleSearchResultsPage extends PageObject {
     @FindBy(css = "#search .g")
     private WebElement firstSearchResult;
 
-    public void shouldContainText(String expectedText) {
+    public void verifyResultsContain(String expectedText) {
         waitFor(searchResultsContainer);
-        searchResultsContainer.shouldContainText(expectedText);
+        String pageText = getDriver().getPageSource();
+        assertThat(pageText).containsIgnoringCase(expectedText);
     }
 
     public boolean hasResults() {
